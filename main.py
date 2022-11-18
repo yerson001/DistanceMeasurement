@@ -8,12 +8,12 @@ KNOWN_DISTANCE = 60
 KNOWN_WIDTH = 8.5
 
 classNames = []
-classFile = '/home/y3rsn/Dev/py/stereo/Object-Detector/coco.names'
+classFile = '/home/fondecyt/Devpy/DistanceMeasurement/model/coco.names'
 with open(classFile, 'rt') as f:
     classNames = f.read().rstrip('\n').split('\n')
 
-configPath = '/home/y3rsn/Dev/py/stereo/Object-Detector/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
-weightsPath = '/home/y3rsn/Dev/py/stereo/Object-Detector/frozen_inference_graph.pb'
+configPath = '/home/fondecyt/Devpy/DistanceMeasurement/model/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
+weightsPath = '/home/fondecyt/Devpy/DistanceMeasurement/model/frozen_inference_graph.pb'
 net = cv2.dnn_DetectionModel(weightsPath, configPath)
 
 net.setInputSize(320, 320)
@@ -72,8 +72,8 @@ def getObjects(img, thresh, nms, draw=True, objects=[]):
 
 
 if __name__ == "__main__":
-    #cap = cv2.VideoCapture(0)
-    cap = cv2.VideoCapture("/home/y3rsn/Dev/py/stereo/video1.webm")
+    cap = cv2.VideoCapture(0)
+    #cap = cv2.VideoCapture("/home/y3rsn/Dev/py/stereo/video1.webm")
     cap.set(3, 640)
     cap.set(4, 480)
     # cap.set(10,70)
